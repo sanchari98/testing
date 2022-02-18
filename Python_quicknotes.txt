@@ -1,0 +1,163 @@
+Python
+-----------------
+1) Overloading is not supported in python. when you introduce another method of same name then it will take the current method only.
+
+2) Decoraters
+------------------
+Decorators provide the flexibility to wrap another function to expand the working of wrapped function, without permanently modifying it.
+It is also called meta programming where a part of the program attempts to change another part of program at compile time.
+
+3) As we said before, a function may have:
+
+an effect;
+a result.
+There's also a third, very important, function component - the argument(s).
+
+4) Note: to distinguish ordinary words from function names, place a pair of empty parentheses after their names, even if the corresponding function wants one or more arguments. This is a standard convention
+5) The only argument delivered to the print() function in this example is a string:
+6) First, Python checks if the name specified is legal (it browses its internal data in order to find an existing function of the name; if this search fails, Python aborts the code);
+second, Python checks if the function's requirements for the number of arguments allows you to invoke the function in this way (e.g., if a specific function demands exactly two arguments, any invocation delivering only one argument will be considered erroneous, and will abort the code's execution);
+third, Python leaves your code for a moment and jumps into the function you want to invoke; of course, it takes your argument(s) too and passes it/them to the function;
+fourth, the function executes its code, causes the desired effect (if any), evaluates the desired result(s) (if any) and finishes its task;
+finally, Python returns to your code (to the place just after the invocation) and resumes its execution.
+
+7) The backslash (\) has a very special meaning when used inside strings - this is called the escape character.
+
+8)  If you want to put just one backslash inside a string, don't forget its escaping nature - you have to double it, e.g., such an invocation will cause an error:
+
+print("\")
+
+
+while this one won't:
+
+print("\\")
+
+9) print("Programming","Essentials","in",sep='***',end="...")
+print("Python")
+
+5. Computer programs are collections of instructions. An instruction is a command to perform a specific task when executed, e.g., to print a certain message to the screen.
+
+6. In Python strings the backslash (\) is a special character which announces that the next character has a different meaning, e.g., \n (the newline character) starts a new output line.
+
+7. Positional arguments are the ones whose meaning is dictated by their position, e.g., the second argument is outputted after the first, the third is outputted after the second, etc.
+
+8. Keyword arguments are the ones whose meaning is not dictated by their location, but by a special word (keyword) used to identify them.
+
+9. The end and sep parameters can be used for formatting the output of the print() function. The sep parameter specifies the separator between the outputted arguments (e.g., print("H", "E", "L", "L", "O", sep="-"), whereas the end parameter specifies what to print at the end of the print statement.
+===========================================================================================================================================================
+Literal
+-------------------------------
+A literal is data whose values are determined by the literal itself.
+
+0o-octal
+0x-hexadecimal
+-----------------------------------------
+A physical constant called Planck's constant (and denoted as h), according to the textbooks, has the value of: 6.62607 x 10-34.
+
+If you would like to use it in a program, you should write it this way:
+
+6.62607E-34
+
+print("I'm","Learning","python",sep='"\n"',end='"""')
+-----------------------------------------------------------------------
+remember: It's possible to formulate the following rules based on this result:
+
+when both ** arguments are integers, the result is an integer, too;
+when at least one ** argument is a float, the result is a float, too.
+-----------------------------------------------------------------------------
+single/ always get result in float for both integers value
+double// always get result in integer for both integer value
+----------------------------------------------------------------------
+
+Priority	Operator	
+1	+, -	                      unary
+2	**	
+3	*, /, //, %	
+4	+, -	                     binary
+
+============================================================================================================================================================
+Priority	Operator	
+1	+, -	                                     unary
+2	**	
+3	*, /, //, %	
+4	+, -	                                 binary   if else
+5	<, <=, >, >=	
+6	==, !=	
+======================================================================================================================================
+tax = round(tax, 0)
+===============================================================================
+dictionary
+-----------------------------------------------------------------------------------------------
+dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+
+for english, french in dictionary.items():
+    print(english, "->", french)
+------------------------------------------------------------------
+dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+
+for key in dictionary.keys():
+    print(key, "->", dictionary[key])
+--------------------------------------------------------------------
+update dictionary
+-----------
+dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+
+dictionary['cat'] = 'minou'
+print(dictionary)
+==================================================================
+tuple
+----------------------
+count
+---------------
+tup = 1, 2, 3, 2, 4, 5, 6, 2, 7, 2, 8, 9
+duplicates = tup.count(2)
+
+print(duplicates)    # outputs: 4
+=========================================================
+converting list inti tuple
+--------------------------------------
+my_list = ["car", "Ford", "flower", "Tulip"]
+
+t = tuple(my_list)
+print(t)
+================================================================================================================================================
+exceptions
+--------------------------------------------------
+Some useful exceptions
+Let’s discuss in more detail some useful (or rather, the most common) exceptions you may experience.
+
+ZeroDivisionError
+This appears when you try to force Python to perform any operation which provokes division in which the divider is zero, or is indistinguishable from zero. Note that there is more than one Python operator which may cause this exception to raise. Can you guess them all?
+
+Yes, they are: /, //, and %.
+
+ValueError
+Expect this exception when you're dealing with values which may be inappropriately used in some context. In general, this exception is raised when a function (like int() or float()) receives an argument of a proper type, but its value is unacceptable.
+
+TypeError
+This exception shows up when you try to apply a data whose type cannot be accepted in the current context. Look at the example:
+
+short_list = [1]
+one_value = short_list[0.5]
+
+
+You're not allowed to use a float value as a list index (the same rule applies to tuples, too). TypeError is an adequate name to describe the problem, and an adequate exception to raise.
+
+AttributeError
+This exception arrives – among other occasions – when you try to activate a method which doesn't exist in an item you're dealing with. For example:
+
+short_list = [1]
+short_list.append(2)
+short_list.depend(3)
+
+
+The third line of our example attempts to make use of a method which isn’t contained in the lists. This is the place where AttributeError is raised.
+
+SyntaxError
+This exception is raised when the control reaches a line of code which violates Python's grammar. It may sound strange, but some errors of this kind cannot be identified without first running the code. This kind of behavior is typical of interpreted languages – the interpreter always works in a hurry and has no time to scan the whole source code. It is content with checking the code which is currently being run. An example of such a category of issues will be presented very soon.
+
+It's a bad idea to handle this exception in your programs. You should produce code that is free of syntax errors, instead of masking the faults you’ve caused.
+
+
+
+
